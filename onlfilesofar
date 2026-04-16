@@ -1,0 +1,26 @@
+pipeline {
+    agent any
+
+    environment {
+        COMPANY_NAME = "University of Galway"
+    }
+
+    stages {
+        stage('Build') {
+            steps {
+                // We use ${} to tell Jenkins to go grab the variable we defined above
+                echo "Building the application for ${env.COMPANY_NAME}..."
+            }
+        }
+        stage('Test') {
+            steps {
+                echo "Testing the application for ${env.COMPANY_NAME}..."
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying to the production server...'
+            }
+        }
+    }
+}
